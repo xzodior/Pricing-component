@@ -15,19 +15,18 @@
 <div class="content">
     <div class="top-half">
         <div class="numbers">
-            <p class="pageviews"><span class="view"></span>PAGEVIEWS</p>
-            <p class="monthly-cost"><span class="dollars">$</span> /month</p>
+            <p id="pageviews"><span id="view">100K</span> PAGEVIEWS</p>
+            <p id="monthly-cost"><span id="dollars">$16</span> /month</p>
         </div>
-        <div class="slide-container">
-                <input type="range" min="0" max="4" step="1" id="mySlider"> <!-- First time using input. The type specifies what input you are looking for.  -->
-            </div>
+        <div id="slide-container">
+                <input type="range" min="0" max="4" id="mySlider" oninput="display(this.value)" onchange="display(this.value)"> <!-- First time using input. The type specifies what input you are looking for.  -->
+            </div>                  <!-- The onchange and oninput is both used so all browsers are compatible with the event. This also takes in the value as an argument. -->
         <div class="toggle">
-                <p>Monthly Billing
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                </p>
+                <p>Monthly Billing</p>
+                <label id="switch">
+                    <input type="checkbox" id="toggle" value="no" onclick="buttonToggle()">
+                    <span class="slider round"></span>
+                </label>
                 <p>Yearly Billing <span class="discount">25% discount</span></p>
         </div>
     </div>
@@ -41,6 +40,6 @@
         <button>Start my trial</button>
     </div>
 </div>
-  
+<script src="./script.js"></script>  
 </body>
 </html>

@@ -1,16 +1,3 @@
-@media (max-width: 375px) {
-    .numbers {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-    }
-
-    .bottom-half {
-        flex-direction: column;
-    }
-}
-
 body {
     background-image: url(./images/bg-pattern.svg);
     background-repeat: no-repeat;
@@ -52,10 +39,22 @@ body {
     margin-top: 3rem;
 }
 
+@media (min-width: 350px) {
+    .content {
+        margin: 0 1rem 0 1rem;
+    }
+}
+
+@media (min-width: 610px) {
+    .content {
+        margin: auto;
+    }
+}
+
 hr {border: 1px thin black; opacity: 0.4; margin: 0;}
 
 .top-half {
-    min-height: 13.5rem;
+    min-height: 15rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -69,18 +68,18 @@ hr {border: 1px thin black; opacity: 0.4; margin: 0;}
     font-weight: 600;
 }
 
-.pageviews, .dollars {                      /* Used these 3 selectors to align both of the text elements as the span by default has no padding or margin. Also because the span elements move the opposite text higher. */
+#pageviews, #dollars {                      /* Used these 3 selectors to align both of the text elements as the span by default has no padding or margin. Also because the span elements move the opposite text higher. */
     display: inline-block;
     vertical-align: middle;
     position: relative;
 }
 
-.dollars {
+#dollars {
     color: hsl(227, 35%, 25%);
     font-size: 2rem;
 }
 
-.slide-container {
+#slide-container {
     margin: auto;
     width: 80%;
 }
@@ -125,12 +124,18 @@ input[type=range]::-webkit-slider-thumb:active {
 
 .toggle {
     display: flex;
-    justify-content: center;
-    align-items: center ;
+    margin: auto;
+    align-items: center;
     color: hsl(225, 20%, 60%);
 }
 
-.switch {                               /* the part around the toggle button*/
+@media (max-width: 393px) {
+    .toggle {
+        font-size: 0.75em;
+    }
+}
+
+#switch {                               /* the part around the toggle button*/
     position: relative;
     display: inline-block;
     width: 3.5rem;
@@ -138,7 +143,7 @@ input[type=range]::-webkit-slider-thumb:active {
     vertical-align: middle;
 }
 
-.switch input {
+#switch input {
     opacity: 0;
     width: 0;
     height: 0;
@@ -148,8 +153,8 @@ input[type=range]::-webkit-slider-thumb:active {
     position: absolute;             /* to show the slider on the screen */
     cursor: pointer;
     top: 0;
-    left: 0;
-    right: 0.6rem;
+    left: 0.5rem;
+    right: 0.5rem;
     bottom: 0;
     background-color: hsl(223, 50%, 87%);
     -webkit-transition: .4s;        
@@ -162,7 +167,7 @@ input[type=range]::-webkit-slider-thumb:active {
     height: 1rem;                   /* These next 4 styles were used to adjust the position of the toggle button inside the slider */
     width: 1rem;
     left: 0.2rem;
-    bottom: 0.1rem;
+    bottom: 2px;
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
@@ -179,7 +184,7 @@ input:focus + .slider {
 input:checked + .slider:before {
     -webkit-transform: translateX(1.5rem);
     -ms-transform: translateX(1.5rem);
-    transform: translateX(1.5rem);
+    transform: translateX(1.1rem);          /* controls the distance the button travels when clicked */
 }
 
 .slider.round {
@@ -227,4 +232,28 @@ button {
     padding: 0.75rem 2.5rem;
     border-radius: 30px;
     border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    color: white;
+}
+
+@media (max-width: 375px) { 
+    .top-half {
+        gap: 1.5rem;
+    }
+
+    .numbers {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+
+    .bottom-half {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
 }
